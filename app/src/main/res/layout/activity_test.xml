@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.zy.androidlibrarycode.databinding.model.Goods"/>
+        <import type="com.zy.androidlibrarycode.databinding.TestActivity.Goodshandler"/>
+        <variable
+            name="goods"
+            type="Goods" />
+        <variable
+            name="goodsHandler"
+            type="Goodshandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        tools:context=".databinding.TestActivity">
+
+        <TextView
+            android:id="@+id/name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{goods.name}"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="title"/>
+
+        <TextView
+            android:id="@+id/detail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:text="@{goods.details ?? goods.name}"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="detail"/>
+
+        <Button
+            android:id="@+id/btn1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail"
+            android:text="改变属性 name 和 price"
+            android:textAllCaps="false"
+            android:onClick="@{()->goodsHandler.changeGoodsName()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn1"
+            android:text="改变属性 details 和 price"
+            android:textAllCaps="false"
+            android:onClick="@{()->goodsHandler.changeGoodsDetails()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn2"
+            android:src="@mipmap/ic_launcher"
+            bind:url="@{goods.url}"
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+
+        <include
+            layout="@layout/observable_list"
+            bind:goods="@{goods}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

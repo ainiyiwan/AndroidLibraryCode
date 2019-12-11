@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="androidx.databinding.ObservableList"/>
+        <import type="androidx.databinding.ObservableMap"/>
+        <import type="com.zy.androidlibrarycode.databinding.model.User"/>
+        <import type="com.zy.androidlibrarycode.databinding.model.Goods"/>
+        <variable
+            name="goods"
+            type="Goods" />
+        <variable
+            name="list"
+            type="ObservableList&lt;String&gt;"/>
+        <variable
+            name="map"
+            type="ObservableMap&lt;String,String&gt;"/>
+        <variable
+            name="index"
+            type="int"/>
+        <variable
+            name="key"
+            type="String"/>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="@{list[index]}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@{map[key]}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,2 @@
+include ':app', ':service', ':serviceimpl'
+rootProject.name='AndroidLibraryCode'
