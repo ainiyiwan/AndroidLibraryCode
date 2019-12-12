@@ -2,9 +2,6 @@ package com.zy.androidlibrarycode.databinding.model;
 
 import android.net.Uri;
 
-import lombok.Builder;
-import lombok.Data;
-
 /**
  * ================================================
  * 作    者：zhangyang
@@ -12,10 +9,8 @@ import lombok.Data;
  * 描    述：
  * ================================================
  */
-@Data
-@Builder
 public class User {
-    private String title;
-    private String subTitle;
-    private Uri drawableRes;
+    public String title;
+    public String subTitle;
+    public Uri drawableRes;
 }

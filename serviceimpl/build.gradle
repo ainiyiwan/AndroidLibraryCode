@@ -57,5 +57,5 @@ dependencies {
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.2.0"
 
     api 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+//    annotationProcessor 'org.projectlombok:lombok:1.18.8'
 }

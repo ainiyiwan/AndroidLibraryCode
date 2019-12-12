@@ -3,7 +3,6 @@ package com.zy.androidlibrarycode.databinding;
 import android.os.Bundle;
 
 import com.zy.androidlibrarycode.R;
-import com.zy.androidlibrarycode.databinding.model.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -15,7 +14,7 @@ public class DataBindingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityDataBindingBinding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding);
-        activityDataBindingBinding
-                .setUserInfo(User.builder().title("我是标题").subTitle("我是subTitle").build());
+//        activityDataBindingBinding
+//                .setUserInfo(User.builder().title("我是标题").subTitle("我是subTitle").build());
     }
 }
