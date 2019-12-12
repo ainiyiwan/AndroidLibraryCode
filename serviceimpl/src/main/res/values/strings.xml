@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">serviceimpl</string>
+    <string name="permission_camera_rationale">我需要相机权限</string>
+    <string name="permission_contacts_rationale">我需要联系人权限</string>
+    <string name="permission_camera_denied">你拒绝了相机权限</string>
+    <string name="permission_camera_never_askagain">你彻底彻底拒绝了相机权限</string>
+    <string name="permission_camera_allow">允许了相机权限</string>
 </resources>
