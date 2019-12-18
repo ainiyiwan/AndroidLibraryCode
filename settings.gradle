@@ -1,2 +1,2 @@
-include ':app', ':service', ':serviceimpl'
+include ':app', ':service', ':serviceimpl', ':SmsObserverLibrary'
 rootProject.name='AndroidLibraryCode'
