@@ -164,6 +164,9 @@ public class SMSActivity extends AppCompatActivity {
      */
     @TargetApi(21)
     private void queryMessageLog() {
+        if (!PermissionUtils.hasSelfPermissions(this, Manifest.permission.READ_SMS)) {
+            return;
+        }
         ContentResolver resolver = getContentResolver();
 //        mCondition = Telephony.Sms.DATE + ">= ? and " + Telephony.Sms.DATE + " <= ?";
         //type： 短信类型1是接收到的，2是已发出
