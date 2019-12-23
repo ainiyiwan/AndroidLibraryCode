@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".IndicatorActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@color/color_0e9f52"
+            android:gravity="center">
+
+            <com.zy.customview.widget.IndicatorLayout
+                android:id="@+id/tab_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/white_bg_corners_all"
+                android:orientation="horizontal"
+                app:cursor_bottom="4dp"
+                app:cursor_color="@color/color_0e9f52"
+                app:cursor_height="2dp"
+                app:tab_color_light="@color/color_0e9f52"
+                app:tab_color_normal="@color/color_000000" />
+
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_task_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</layout>

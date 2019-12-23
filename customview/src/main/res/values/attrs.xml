@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Indicator">
+        <attr name="tab_color_normal" />
+        <attr name="tab_color_light" />
+        <attr name="cursor_color" />
+        <attr name="cursor_height" />
+        <attr name="cursor_offset" />
+        <attr name="cursor_bottom" />
+        <attr name="mode" />
+    </declare-styleable>
+</resources>

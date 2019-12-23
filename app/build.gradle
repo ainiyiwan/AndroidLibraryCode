@@ -53,6 +53,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
     implementation project(':serviceimpl')
+    implementation project(':customview')
     annotationProcessor "org.permissionsdispatcher:permissionsdispatcher-processor:4.6.0"
 //    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.2.0"
 }
