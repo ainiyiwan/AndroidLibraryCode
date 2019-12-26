@@ -9,13 +9,18 @@
         android:layout_height="match_parent"
         tools:context=".IndicatorActivity">
 
-        <LinearLayout
+        <Button
+            android:onClick="changeTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:background="@color/color_0e9f52"
-            android:gravity="center">
+            android:background="@color/color_0e9f52">
 
             <com.zy.customview.widget.IndicatorLayout
+                android:layout_centerVertical="true"
                 android:id="@+id/tab_indicator"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
@@ -25,11 +30,17 @@
                 android:orientation="horizontal"
                 app:cursor_bottom="4dp"
                 app:cursor_color="@color/color_0e9f52"
-                app:cursor_height="2dp"
+                app:cursor_height="0dp"
                 app:tab_color_light="@color/color_0e9f52"
                 app:tab_color_normal="@color/color_000000" />
 
-        </LinearLayout>
+            <View
+                android:layout_centerInParent="true"
+                android:layout_width="0.5dp"
+                android:layout_height="18dp"
+                android:background="#cccccc"/>
+
+        </RelativeLayout>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_task_container"

@@ -1,6 +1,8 @@
 package com.zy.customview;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.zy.customview.base.BaseFragmentAdapter;
 import com.zy.customview.databinding.ActivityIndicatorBinding;
@@ -43,5 +45,13 @@ public class IndicatorActivity extends AppCompatActivity implements IndicatorLay
     @Override
     public void onChanged(int index) {
         activityIndicatorBinding.vpTaskContainer.setCurrentItem(index);
+    }
+
+    public void changeTab(View view) {
+        String[] mNewTabs = {"今日任务（99）", "历史任务"};
+        TextView textView = (TextView) activityIndicatorBinding.tabIndicator.getChildAt(0);
+        textView.setText("今日任务（99）");
+        activityIndicatorBinding.tabIndicator.invalidate();
+//        activityIndicatorBinding.tabIndicator.setTabs(mNewTabs);
     }
 }

@@ -3,12 +3,10 @@
     package="com.zy.customview">
 
     <application>
-        <activity android:name=".IndicatorActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".IndicatorActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
