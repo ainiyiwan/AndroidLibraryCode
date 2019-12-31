@@ -37,6 +37,7 @@ public class ViewVisibilityActivity extends AppCompatActivity {
                 binding.imageView.setVisibility(View.VISIBLE);
                 Log.e(TAG, "condition4 scrollY = " + scrollY +" buttonTop = " + buttonTop);
             }
+
         }
     };
 
@@ -48,7 +49,8 @@ public class ViewVisibilityActivity extends AppCompatActivity {
         binding.btn.post(new Runnable() {
             @Override
             public void run() {
-                buttonTop = binding.btn.getTop();
+//                buttonTop = binding.btn.getTop();
+                buttonTop = 10;
             }
         });
     }
