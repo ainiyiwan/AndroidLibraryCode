@@ -43,15 +43,15 @@ public class TestParcel implements Parcelable {
         this.parcel = in.readString();
     }
 
-    public static final Creator<TestParcel> CREATOR = new Creator<TestParcel>() {
-        @Override
-        public TestParcel createFromParcel(Parcel source) {
-            return new TestParcel(source);
-        }
-
-        @Override
-        public TestParcel[] newArray(int size) {
-            return new TestParcel[size];
-        }
-    };
+//    public static final Creator<TestParcel> CREATOR = new Creator<TestParcel>() {
+//        @Override
+//        public TestParcel createFromParcel(Parcel source) {
+//            return new TestParcel(source);
+//        }
+//
+//        @Override
+//        public TestParcel[] newArray(int size) {
+//            return new TestParcel[size];
+//        }
+//    };
 }

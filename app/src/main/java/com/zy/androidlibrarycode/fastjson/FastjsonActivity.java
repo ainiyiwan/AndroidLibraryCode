@@ -29,8 +29,8 @@ public class FastjsonActivity extends AppCompatActivity {
 
     public void toJsonString() {
         listOfPersons.add(new Person(15, "John Doe"));
-        listOfPersons.add(new Person(20));
-        listOfPersons.add(new Person("zhang"));
+        listOfPersons.add(new Person(20, null));
+        listOfPersons.add(new Person("null"));
         String jsonOutput = JSON.toJSONString(listOfPersons);
         String jsonOutput1 = JSON.toJSONString(listOfPersons,
                 SerializerFeature.WriteNullStringAsEmpty,

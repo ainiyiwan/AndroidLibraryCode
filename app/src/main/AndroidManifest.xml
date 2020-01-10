@@ -16,16 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".visibility.ViewVisibility2Activity">
+        <activity android:name=".parcel.ParcelGetActivity"></activity>
+        <activity android:name=".parcel.ParcelActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".visibility.ViewVisibilityActivity">
-
-        </activity>
+        <activity android:name=".visibility.ViewVisibility2Activity" />
+        <activity android:name=".visibility.ViewVisibilityActivity" />
         <activity android:name=".databinding.TestActivity" />
         <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".arouter.ARouterJumpActivity" />
@@ -38,7 +38,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".arouter.ARouterActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>
