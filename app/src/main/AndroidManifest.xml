@@ -4,6 +4,7 @@
     package="com.zy.androidlibrarycode">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
@@ -16,14 +17,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".parcel.ParcelGetActivity"></activity>
-        <activity android:name=".parcel.ParcelActivity" >
+        <activity android:name=".fdleak.FDLeakSecondActivity"></activity>
+        <activity android:name=".fdleak.FDLeakActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".parcel.ParcelGetActivity" />
+        <activity android:name=".parcel.ParcelActivity"></activity>
         <activity android:name=".visibility.ViewVisibility2Activity" />
         <activity android:name=".visibility.ViewVisibilityActivity" />
         <activity android:name=".databinding.TestActivity" />
@@ -38,9 +41,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".arouter.ARouterActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
