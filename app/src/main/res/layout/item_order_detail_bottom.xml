@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_order_number_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_order_detail_bottom_desc"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="12dp"
+        android:textColor="@color/color_222222"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/tv_order_detail_bottom_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/color_000000"
+        android:textSize="13dp"
+        tools:text="200015896023515122121" />
+
+    <TextView
+        android:id="@+id/btn_order_detail_copy_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginLeft="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:textColor="@color/color_008c3c"
+        android:textSize="13dp" />
+</LinearLayout>
