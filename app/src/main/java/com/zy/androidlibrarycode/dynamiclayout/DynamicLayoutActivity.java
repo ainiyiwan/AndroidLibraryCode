@@ -14,6 +14,7 @@ import com.zy.serviceimpl.util.ObjectUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
@@ -24,7 +25,6 @@ import static android.view.View.VISIBLE;
 import static com.zy.androidlibrarycode.dynamiclayout.bean.BottomBeanConstant.COUPON;
 import static com.zy.androidlibrarycode.dynamiclayout.bean.BottomBeanConstant.NAME;
 import static com.zy.androidlibrarycode.dynamiclayout.bean.BottomBeanConstant.PRICE;
-import static com.zy.androidlibrarycode.dynamiclayout.bean.BottomBeanConstant.TREE;
 
 /**
  * 动态添加View，通过ViewGroup自己控制，比较复杂，容易出错
@@ -99,7 +99,8 @@ public class DynamicLayoutActivity extends AppCompatActivity {
     }
 
     public void add(View view) {
-        BottomBean bottomBean = new BottomBean("价格1", "100", TREE);
+        int random = new Random().nextInt(100);
+        BottomBean bottomBean = new BottomBean("价格1", "100", random);
         if (!isContainData(bottomBean.position)) {
             list.add(bottomBean);
             Collections.sort(list);
@@ -107,13 +108,15 @@ public class DynamicLayoutActivity extends AppCompatActivity {
             int position = findPosition(bottomBean.position);
             if (position != -1) {
                 addData(position);
+//                setData();
             }
         }
     }
 
     public void del(View view) {
-        if (isContainData(TREE)) {
-            int position = findPosition(TREE);
+        int random = new Random().nextInt(100);
+        if (isContainData(random)) {
+            int position = findPosition(random);
             if (position != -1) {
                 list.remove(position);
                 Collections.sort(list);
@@ -127,8 +130,9 @@ public class DynamicLayoutActivity extends AppCompatActivity {
      * @param position 要添加数据的位置
      */
     public void addData(int position) {
-        int size = list.size();
-        resizeChildCount(mOrderNumberContainer, size, R.layout.item_order_detail_bottom);
+        View view = LayoutInflater.from(mOrderNumberContainer.getContext()).inflate(R.layout.item_order_detail_bottom
+                , mOrderNumberContainer, false);
+        mOrderNumberContainer.addView(view, position);
 
         View bottomView = mOrderNumberContainer.getChildAt(position);
         BottomBean bottomBean = list.get(position);
