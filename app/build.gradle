@@ -62,4 +62,5 @@ dependencies {
     annotationProcessor "org.permissionsdispatcher:permissionsdispatcher-processor:4.6.0"
 //    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.2.0"
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
 }
