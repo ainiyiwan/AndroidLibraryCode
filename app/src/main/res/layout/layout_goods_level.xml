@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_good_name_spec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_222222"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textSize="13dp"
+        android:includeFontPadding="false"
+        tools:visibility="invisible"
+        tools:text="1321321" />
+
+    <TextView
+        android:id="@+id/tv_good_name_spec_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_222222"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="13dp"
+        android:includeFontPadding="false"
+        android:visibility="invisible"
+        tools:text="1321321" />
+
+    <LinearLayout
+        android:id="@+id/ll_goods_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_good_name_spec_temp"
+        android:layout_alignBottom="@id/tv_good_name_spec_temp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <TextView
+            android:id="@+id/tv_goods_level"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:background="@mipmap/bg_home_pop_level"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:textColor="@color/color_ffffff"
+            android:textSize="10dp"
+            tools:text="招牌" />
+
+    </LinearLayout>
+
+</RelativeLayout>

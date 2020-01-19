@@ -17,18 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".dynamiclayout.DynamicRecyclerActivity">
+        <activity android:name=".goodlayout.GoodsNameActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dynamiclayout.DynamicLayoutActivity">
-
+        <activity android:name=".dynamiclayout.DynamicRecyclerActivity">
         </activity>
+        <activity android:name=".dynamiclayout.DynamicLayoutActivity"></activity>
         <activity android:name=".fdleak.FDLeakSecondActivity" />
-        <activity android:name=".fdleak.FDLeakActivity"></activity>
+        <activity android:name=".fdleak.FDLeakActivity" />
         <activity android:name=".parcel.ParcelGetActivity" />
         <activity android:name=".parcel.ParcelActivity" />
         <activity android:name=".visibility.ViewVisibility2Activity" />
