@@ -17,17 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".aop.ProxyActivity">
+        <activity android:name=".ninepic.NinePicActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".screenshot.ScreenShotActivity">
+        <activity android:name=".aop.ProxyActivity">
 
         </activity>
-        <activity android:name=".dagger.DaggerActivity"></activity>
+        <activity android:name=".screenshot.ScreenShotActivity"></activity>
+        <activity android:name=".dagger.DaggerActivity" />
         <activity android:name=".goodlayout.GoodsNameActivity" />
         <activity android:name=".dynamiclayout.DynamicRecyclerActivity" />
         <activity android:name=".dynamiclayout.DynamicLayoutActivity" />
