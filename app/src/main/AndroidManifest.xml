@@ -17,17 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".bitmap.test.BitmapCompressActivity"></activity>
-        <activity android:name=".barcode.BarCodeActivity"></activity>
-        <activity android:name=".ninepic.NinePicActivity"></activity>
-        <activity android:name=".aop.ProxyActivity" />
-        <activity android:name=".screenshot.ScreenShotActivity">
+        <activity android:name=".exception.ConcurrentModificationExceptionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".bitmap.test.BitmapCompressActivity" />
+        <activity android:name=".barcode.BarCodeActivity" />
+        <activity android:name=".ninepic.NinePicActivity" />
+        <activity android:name=".aop.ProxyActivity" />
+        <activity android:name=".screenshot.ScreenShotActivity"></activity>
         <activity android:name=".dagger.DaggerActivity" />
         <activity android:name=".goodlayout.GoodsNameActivity" />
         <activity android:name=".dynamiclayout.DynamicRecyclerActivity" />
@@ -41,7 +42,9 @@
         <activity android:name=".databinding.TestActivity" />
         <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".arouter.ARouterJumpActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
         <activity
             android:name=".fastjson.FastjsonActivity"
             android:screenOrientation="portrait" />
