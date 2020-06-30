@@ -3,11 +3,14 @@ package com.zy.androidlibrarycode.lru;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.zy.androidlibrarycode.R;
@@ -17,6 +20,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -30,11 +34,14 @@ public class DiskLruActivity extends AppCompatActivity {
     private DiskLruCache mDiskLruCache;
     private HandlerThread mCheckMsgThread;
     private Handler mCheckMsgHandler;
+    private ImageView mImageView;
+    String imageUrl = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disk_lru);
+        mImageView = findViewById(R.id.image_view);
 
         initDiskLruCache();
         //创建后台线程
@@ -158,7 +165,6 @@ public class DiskLruActivity extends AppCompatActivity {
     }
 
     private void getAndCache() throws IOException {
-        String imageUrl = "https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png";
         String key = hashKeyForDisk(imageUrl);
         DiskLruCache.Editor editor = mDiskLruCache.edit(key);
         if (editor != null) {
@@ -171,5 +177,26 @@ public class DiskLruActivity extends AppCompatActivity {
             }
         }
         mDiskLruCache.flush();
+
+        showImageFromCache();
+    }
+
+    private void showImageFromCache() {
+        mImageView.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String key = hashKeyForDisk(imageUrl);
+                    DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);
+                    if (snapShot != null) {
+                        InputStream is = snapShot.getInputStream(0);
+                        Bitmap bitmap = BitmapFactory.decodeStream(is);
+                        mImageView.setImageBitmap(bitmap);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
