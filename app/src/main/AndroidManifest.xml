@@ -17,14 +17,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".applink.AppLinksActivity"></activity>
-        <activity android:name=".exception.ConcurrentModificationExceptionActivity">
+        <activity android:name=".lru.DiskLruActivity"></activity>
+        <activity android:name=".lru.LruActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".applink.AppLinksActivity" />
+        <activity android:name=".exception.ConcurrentModificationExceptionActivity"></activity>
         <activity android:name=".bitmap.test.BitmapCompressActivity" />
         <activity android:name=".barcode.BarCodeActivity" />
         <activity android:name=".ninepic.NinePicActivity" />
@@ -43,7 +45,7 @@
         <activity android:name=".databinding.TestActivity" />
         <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".arouter.ARouterJumpActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".fastjson.FastjsonActivity"
             android:screenOrientation="portrait" />
