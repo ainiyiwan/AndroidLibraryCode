@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".applink.AppLinksActivity"></activity>
         <activity android:name=".exception.ConcurrentModificationExceptionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +29,7 @@
         <activity android:name=".barcode.BarCodeActivity" />
         <activity android:name=".ninepic.NinePicActivity" />
         <activity android:name=".aop.ProxyActivity" />
-        <activity android:name=".screenshot.ScreenShotActivity"></activity>
+        <activity android:name=".screenshot.ScreenShotActivity" />
         <activity android:name=".dagger.DaggerActivity" />
         <activity android:name=".goodlayout.GoodsNameActivity" />
         <activity android:name=".dynamiclayout.DynamicRecyclerActivity" />
@@ -42,9 +43,7 @@
         <activity android:name=".databinding.TestActivity" />
         <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".arouter.ARouterJumpActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".fastjson.FastjsonActivity"
             android:screenOrientation="portrait" />

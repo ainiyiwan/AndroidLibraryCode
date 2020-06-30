@@ -69,4 +69,7 @@ dependencies {
     //bitmap compress
     implementation 'top.zibin:Luban:1.1.8'
     implementation 'com.github.nanchen2251:CompressHelper:1.0.5'
+
+    //network
+    implementation 'com.lzy.net:okgo:3.0.4'
 }
