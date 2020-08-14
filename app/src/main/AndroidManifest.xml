@@ -17,16 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".lru.DiskLruActivity"></activity>
-        <activity android:name=".lru.LruActivity">
+        <activity android:name=".viewstub.ViewStubActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".lru.DiskLruActivity" />
+        <activity android:name=".lru.LruActivity">
+
+        </activity>
         <activity android:name=".applink.AppLinksActivity" />
-        <activity android:name=".exception.ConcurrentModificationExceptionActivity"></activity>
+        <activity android:name=".exception.ConcurrentModificationExceptionActivity" />
         <activity android:name=".bitmap.test.BitmapCompressActivity" />
         <activity android:name=".barcode.BarCodeActivity" />
         <activity android:name=".ninepic.NinePicActivity" />

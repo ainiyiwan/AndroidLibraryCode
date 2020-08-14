@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.view.ViewGroup;
 
 import com.zy.androidlibrarycode.bitmap.compress.blankj.Utils;
 
@@ -20,6 +21,23 @@ import androidx.core.content.ContextCompat;
  * ================================================
  */
 public class MyBitmapUtil {
+
+    /**
+     * 截取ViewGroup的屏幕
+     **/
+    public static Bitmap getViewGroupBitmap(ViewGroup viewGroup) {
+        int h = 0;
+        Bitmap bitmap;
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            h += viewGroup.getChildAt(i).getHeight();
+        }
+        // 创建对应大小的bitmap
+        bitmap = Bitmap.createBitmap(viewGroup.getWidth(), h,
+                Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(bitmap);
+        viewGroup.draw(canvas);
+        return bitmap;
+    }
 
     public static Bitmap getBitmap(File file, int maxWidth, int maxHeight) {
         BitmapFactory.Options options = new BitmapFactory.Options();

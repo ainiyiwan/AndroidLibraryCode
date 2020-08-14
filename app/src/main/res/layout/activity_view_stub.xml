@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".viewstub.ViewStubActivity">
+
+    <Button
+        android:text="填充viewStub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="getViewStubPic" />
+
+    <Button
+        android:text="添加View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addView" />
+
+    <Button
+        android:text="移除View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="delView" />
+
+    <Button
+        android:text="截图并展示"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="capPicAndShow" />
+
+    <ImageView
+        android:id="@+id/iamge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ViewStub
+        android:id="@+id/stub"
+        android:inflatedId="@+id/container"
+        android:layout="@layout/view_stub_inflate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
