@@ -25,7 +25,7 @@ android {
 
         // tencent x5
         ndk {
-            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+//            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
     }
     buildTypes {

@@ -332,4 +332,22 @@ public final class ImageUtils {
         return bitmap;
     }
 
+    /**
+     * https://x5.tencent.com/docs/webview.html
+     * 截整个网页
+     *
+     * /**
+     * * 截整页，截取整个webview
+     * * 绘制canvas
+     * * drawScrollbar是否截取滚动条---保留暂未使用
+     * * drawTitleBar是否截取标题栏---保留暂未使用
+     * mWebView.getX5WebViewExtension().
+     *
+     *     snapshotWholePage(
+     *      *Canvas canvas,
+     *      *boolean drawScrollbars,
+     *      *boolean drawTitleBar
+     *      *)
+     *      */
+
 }

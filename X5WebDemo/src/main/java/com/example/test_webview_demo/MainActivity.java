@@ -1,8 +1,5 @@
 package com.example.test_webview_demo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -17,6 +14,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends Activity {
 
