@@ -284,4 +284,52 @@ public final class ImageUtils {
         return ConvertUtils.byte2MemorySize(getBitmapSize(bitmap), MemoryConstants.MB);
     }
 
+    /**
+     * 作者：贝聊科技
+     * 链接：https://juejin.im/post/6844903509310078984
+     * 来源：掘金
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    public static Bitmap captureWebViewKitKat(com.tencent.smtt.sdk.WebView webView) {
+        Picture picture = webView.capturePicture();
+        int width = picture.getWidth();
+        int height = picture.getHeight();
+        if (width > 0 && height > 0) {
+            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            picture.draw(canvas);
+            return bitmap;
+        }
+        return null;
+    }
+
+    /**
+     * 作者：贝聊科技
+     * 链接：https://juejin.im/post/6844903509310078984
+     * 来源：掘金
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    public static Bitmap captureWebViewLollipop(com.tencent.smtt.sdk.WebView webView) {
+        float scale = webView.getScale();
+        int width = webView.getWidth();
+        int height = (int) (webView.getContentHeight() * scale + 0.5);
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        webView.draw(canvas);
+        return bitmap;
+    }
+
+
+    public static Bitmap captureX5WebViewUnSharp(com.tencent.smtt.sdk.WebView webView) {
+        if (webView == null) {
+            return null;
+        }
+        int width = webView.getContentWidth();
+        int height = webView.getContentHeight();
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        webView.getX5WebViewExtension().snapshotWholePage(canvas, false, false);
+        return bitmap;
+    }
+
 }

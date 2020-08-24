@@ -28,7 +28,7 @@
         <activity
             android:name=".web.tencentx5.X5WebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:hardwareAccelerated="true"
+            android:hardwareAccelerated="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/WebViewTheme" />

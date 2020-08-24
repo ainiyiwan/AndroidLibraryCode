@@ -150,7 +150,7 @@ public class ByWebViewActivity extends AppCompatActivity {
 //            TestWebActivity.showImage(bitmap);
 
             //方式六：使用低版本的截图方法 也是可行的。
-            Bitmap bitmap = ImageUtils.captureWebViewLollipop(view);
+            Bitmap bitmap = ImageUtils.captureWebViewKitKat(view);
             Log.e(TAG, "getBitmapSizeWithUnit = " + ImageUtils.getBitmapSizeWithUnit(bitmap) + " MB");
             ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
             TestWebActivity.showImage(bitmap);

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Build;
@@ -16,15 +17,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tencent.smtt.export.external.extension.interfaces.IX5WebViewExtension;
 import com.zy.androidlibrarycode.R;
+import com.zy.androidlibrarycode.parcel.ToastUtil;
+import com.zy.androidlibrarycode.screenshot.ImageUtils;
 import com.zy.androidlibrarycode.utils.CheckNetwork;
 import com.zy.androidlibrarycode.utils.StatusBarUtil;
 import com.zy.androidlibrarycode.utils.WebTools;
 import com.zy.androidlibrarycode.web.MyJavascriptInterface;
+import com.zy.androidlibrarycode.web.TestWebActivity;
 import com.zy.androidlibrarycode.web.config.FullscreenHolder;
 import com.zy.androidlibrarycode.web.config.MyWebChromeClient;
 import com.zy.androidlibrarycode.web.config.WebProgress;
@@ -48,6 +54,7 @@ import androidx.core.content.ContextCompat;
  * link to https://github.com/youlookwhat/WebViewStudy
  */
 public class X5WebViewActivity extends AppCompatActivity implements IX5WebPageView {
+    public static final String TAG = X5WebViewActivity.class.getSimpleName();
 
     // 进度条
     private WebProgress mProgressBar;
@@ -66,12 +73,23 @@ public class X5WebViewActivity extends AppCompatActivity implements IX5WebPageVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //第一步
+        //作者：贝聊科技
+        //链接：https://juejin.im/post/6844903509310078984
+        //来源：掘金
+        //著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+        // 有x5内核没有生效，并且Android版本是5.0及以上时，调用enableSlowWholeDocumentDraw()方便截取长图
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            android.webkit.WebView.enableSlowWholeDocumentDraw();
+        }
+
         setContentView(R.layout.activity_webview_x5);
         getWindow().setFormat(PixelFormat.TRANSLUCENT);
         getIntentData();
         initTitle();
         initWebView();
         webView.loadUrl(mUrl);
+        IX5WebViewExtension extension = webView.getX5WebViewExtension();
         getDataFromBrowser(getIntent());
     }
 
@@ -239,10 +257,19 @@ public class X5WebViewActivity extends AppCompatActivity implements IX5WebPageVi
         if (!CheckNetwork.isNetworkConnected(this)) {
             mProgressBar.hide();
         }
-        loadImageClickJS();
-        loadTextClickJS();
-        loadCallJS();
-        loadWebsiteSourceCodeJS();
+
+        //内核启动失败
+        //方式一：
+        Bitmap bitmap = ImageUtils.captureWebViewKitKat(view);
+        ToastUtil.toast(X5WebViewActivity.this, "onPageFinished");
+        Log.e(TAG, "getBitmapSizeWithUnit = " + ImageUtils.getBitmapSizeWithUnit(bitmap) + " MB");
+        TestWebActivity.showImage(bitmap);
+
+        //方法二：不可行
+//        Bitmap bitmap = ImageUtils.captureWebViewLollipop(view);
+//        ToastUtil.toast(X5WebViewActivity.this, "onPageFinished");
+//        Log.e(TAG, "getBitmapSizeWithUnit = " + ImageUtils.getBitmapSizeWithUnit(bitmap) + " MB");
+//        TestWebActivity.showImage(bitmap);
     }
 
     /**
@@ -251,53 +278,6 @@ public class X5WebViewActivity extends AppCompatActivity implements IX5WebPageVi
     @Override
     public boolean isOpenThirdApp(String url) {
         return WebTools.handleThirdApp(this, url);
-    }
-
-    /**
-     * 前端注入JS：
-     * 这段js函数的功能就是，遍历所有的img节点，并添加onclick函数，函数的功能是在图片点击的时候调用本地java接口并传递url过去
-     */
-    private void loadImageClickJS() {
-        loadJs("javascript:(function(){" +
-                "var objs = document.getElementsByTagName(\"img\");" +
-                "for(var i=0;i<objs.length;i++)" +
-                "{" +
-                "objs[i].onclick=function(){window.injectedObject.imageClick(this.getAttribute(\"src\"));}" +
-                "}" +
-                "})()");
-    }
-
-    /**
-     * 前端注入JS：
-     * 遍历所有的<li>节点,将节点里的属性传递过去(属性自定义,用于页面跳转)
-     */
-    private void loadTextClickJS() {
-        loadJs("javascript:(function(){" +
-                "var objs =document.getElementsByTagName(\"li\");" +
-                "for(var i=0;i<objs.length;i++)" +
-                "{" +
-                "objs[i].onclick=function(){" +
-                "window.injectedObject.textClick(this.getAttribute(\"type\"),this.getAttribute(\"item_pk\"));}" +
-                "}" +
-                "})()");
-    }
-
-    /**
-     * 传应用内的数据给html，方便html处理
-     */
-    private void loadCallJS() {
-        // 无参数调用
-        loadJs("javascript:javacalljs()");
-        // 传递参数调用
-        loadJs("javascript:javacalljswithargs('" + "android传入到网页里的数据，有参" + "')");
-    }
-
-    /**
-     * get website source code
-     * 获取网页源码
-     */
-    private void loadWebsiteSourceCodeJS() {
-        loadJs("javascript:window.injectedObject.showSource(document.getElementsByTagName('html')[0].innerHTML);");
     }
 
     /**
