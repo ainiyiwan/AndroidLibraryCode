@@ -87,6 +87,8 @@ dependencies {
     //封装好的Web容器
 //    implementation 'com.github.youlookwhat:ByWebView:1.0.0'
     implementation project(':ByWebView')
+    //X5WebView
+    implementation files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
 
     //Android工具类
     //https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md

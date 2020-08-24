@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.zy.androidlibrarycode.R;
+import com.zy.androidlibrarycode.web.tencentx5.X5WebViewActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +24,8 @@ public class TestWebActivity extends AppCompatActivity {
     public void jump(View view) {
 //        ByWebViewActivity.loadUrl(this, "https://github.com/youlookwhat/WebViewStudy", "WebViewStudy");
 //        ByWebViewActivity.loadUrl(this, "https://juejin.im/post/6844903509310078984", "WebViewStudy");
-        ByWebViewActivity.loadUrl(this, "https://www.baidu.com/", "WebViewStudy");
+//        ByWebViewActivity.loadUrl(this, "https://www.baidu.com/", "WebViewStudy");
+        X5WebViewActivity.loadUrl(this, "https://www.baidu.com/", "WebViewStudy");
     }
 
     public static void showImage(Bitmap bitmap) {

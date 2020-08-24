@@ -24,6 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--tencent x5 页面-->
+        <activity
+            android:name=".web.tencentx5.X5WebViewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/WebViewTheme" />
         <activity
             android:name=".web.ByWebViewActivity"
             android:configChanges="orientation|screenSize"
