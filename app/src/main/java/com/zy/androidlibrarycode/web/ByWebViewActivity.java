@@ -2,7 +2,9 @@ package com.zy.androidlibrarycode.web;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -14,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zy.androidlibrarycode.R;
+import com.zy.androidlibrarycode.databinding.util.ImageUtil;
+import com.zy.androidlibrarycode.parcel.ToastUtil;
+import com.zy.androidlibrarycode.screenshot.ImageUtils;
 import com.zy.androidlibrarycode.utils.StatusBarUtil;
 import com.zy.androidlibrarycode.utils.WebTools;
 
@@ -42,6 +47,7 @@ import me.jingbin.web.OnByWebClientCallback;
  * link to https://github.com/youlookwhat/ByWebView
  */
 public class ByWebViewActivity extends AppCompatActivity {
+    public static final String TAG = ByWebViewActivity.class.getSimpleName();
 
     // 网页链接
     private String mUrl;
@@ -53,6 +59,11 @@ public class ByWebViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //第一步
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            WebView.enableSlowWholeDocumentDraw();
+        }
+
         setContentView(R.layout.activity_by_webview);
         getIntentData();
         initTitle();
@@ -112,10 +123,37 @@ public class ByWebViewActivity extends AppCompatActivity {
     private OnByWebClientCallback onByWebClientCallback = new OnByWebClientCallback() {
         @Override
         public void onPageFinished(WebView view, String url) {
-            loadImageClickJS();
-            loadTextClickJS();
-            loadCallJS();
-//            loadWebsiteSourceCodeJS();
+            Log.e(TAG, "onPageFinished = " + url);
+
+            //方式一：只能截取当前页面
+//            Bitmap bitmap = ImageUtils.view2Bitmap(view);
+//            TestWebActivity.showImage(bitmap);
+
+            //方式二：Web页面传递给App页面高度
+//            Bitmap bitmap = ImageUtils.view2Bitmap(view, 5000);
+//            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
+//            TestWebActivity.showImage(bitmap);
+
+            //方式三：Web页面自身测量高度
+//            Bitmap bitmap = ImageUtils.getWebViewBitmap(view);
+//            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
+//            TestWebActivity.showImage(bitmap);
+
+            //方式四：Web的getScale方法截取
+//            Bitmap bitmap = ImageUtils.captureWebViewLollipop(view);
+//            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
+//            TestWebActivity.showImage(bitmap);
+
+            //方式五：大神的博客，计算的高度不正确
+//            Bitmap bitmap = ImageUtils.captureWebViewByYiFeng(view);
+//            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
+//            TestWebActivity.showImage(bitmap);
+
+            //方式六：使用低版本的截图方法 也是可行的。
+            Bitmap bitmap = ImageUtils.captureWebViewLollipop(view);
+            Log.e(TAG, "getBitmapSizeWithUnit = " + ImageUtils.getBitmapSizeWithUnit(bitmap) + " MB");
+            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
+            TestWebActivity.showImage(bitmap);
         }
 
         @Override

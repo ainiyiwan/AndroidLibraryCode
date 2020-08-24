@@ -4,10 +4,17 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Picture;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
+import android.webkit.WebView;
+
+import com.blankj.utilcode.constant.MemoryConstants;
+import com.blankj.utilcode.util.ConvertUtils;
 
 import java.io.ByteArrayOutputStream;
 
@@ -118,6 +125,7 @@ public final class ImageUtils {
 
     /**
      * View to bitmap.
+     * https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/src/main/java/com/blankj/utilcode/util/ImageUtils.java
      *
      * @param view The view.
      * @return bitmap
@@ -152,5 +160,128 @@ public final class ImageUtils {
         return bitmap;
     }
 
+    /**
+     * View to bitmap.
+     * 获取指定高度的View的截图
+     * https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/src/main/java/com/blankj/utilcode/util/ImageUtils.java
+     * 自己修改自上面的方法
+     */
+    public static Bitmap view2Bitmap(final View view, int height) {
+        if (view == null) return null;
+        boolean drawingCacheEnabled = view.isDrawingCacheEnabled();
+        boolean willNotCacheDrawing = view.willNotCacheDrawing();
+        view.setDrawingCacheEnabled(true);
+        view.setWillNotCacheDrawing(false);
+        Bitmap bitmap;
+
+        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        view.layout(0, 0, view.getMeasuredWidth(), height);
+        view.buildDrawingCache();
+        bitmap = Bitmap.createBitmap(view.getMeasuredWidth(), height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+
+        view.destroyDrawingCache();
+        view.setWillNotCacheDrawing(willNotCacheDrawing);
+        view.setDrawingCacheEnabled(drawingCacheEnabled);
+        return bitmap;
+    }
+
+    /**
+     * 截取WebView，不用指定高度
+     * 知乎的文章，包含X5 WebView的截图方法
+     * https://zhuanlan.zhihu.com/p/27004588
+     */
+    public static Bitmap getWebViewBitmap(WebView mWebView) {
+        // WebView 生成长图，也就是超过一屏的图片，代码中的 longImage 就是最后生成的长图
+        mWebView.measure(View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        mWebView.layout(0, 0, mWebView.getMeasuredWidth(), mWebView.getMeasuredHeight());
+        mWebView.setDrawingCacheEnabled(true);
+        mWebView.buildDrawingCache();
+        Bitmap longImage = Bitmap.createBitmap(mWebView.getMeasuredWidth(),
+                mWebView.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(longImage);    // 画布的宽高和 WebView 的网页保持一致
+        Paint paint = new Paint();
+        canvas.drawBitmap(longImage, 0, mWebView.getMeasuredHeight(), paint);
+        mWebView.draw(canvas);
+        return longImage;
+    }
+
+    /**
+     * https://woyifeng.com/2017/12/21/android-webview-screenshot-things/
+     * 计算的高度不正确
+     */
+    @Deprecated
+    public static Bitmap captureWebViewByYiFeng(WebView webView) {
+        float scale = webView.getScale();
+        int width = webView.getWidth();
+        int height = (int) (webView.getHeight() * scale);
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        webView.draw(canvas);
+        return bitmap;
+    }
+
+    /**
+     * 对WebView进行截屏，虽然使用过期方法，但在当前Android版本中测试可行
+     *
+     * 作者：贝聊科技
+     *  链接：https://juejin.im/post/6844903509310078984
+     *  来源：掘金
+     *  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    public static Bitmap captureWebViewKitKat(WebView webView) {
+        Picture picture = webView.capturePicture();
+        int width = picture.getWidth();
+        int height = picture.getHeight();
+        if (width > 0 && height > 0) {
+            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            picture.draw(canvas);
+            return bitmap;
+        }
+        return null;
+    }
+
+    /**
+     * 作者：贝聊科技
+     * 链接：https://juejin.im/post/6844903509310078984
+     * 来源：掘金
+     * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    public static Bitmap captureWebViewLollipop(WebView webView) {
+        float scale = webView.getScale();
+        int width = webView.getWidth();
+        int height = (int) (webView.getContentHeight() * scale + 0.5);
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        webView.draw(canvas);
+        return bitmap;
+    }
+
+    /**
+     * 得到bitmap的大小
+     */
+    public static int getBitmapSize(Bitmap bitmap) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {    //API 19
+            return bitmap.getAllocationByteCount();
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {//API 12
+            return bitmap.getByteCount();
+        }
+        // 在低版本中用一行的字节x高度
+        return bitmap.getRowBytes() * bitmap.getHeight();                //earlier version
+    }
+
+    /**
+     * 得到bitmap的大小
+     * @return
+     */
+    public static double getBitmapSizeWithUnit(Bitmap bitmap) {
+        return ConvertUtils.byte2MemorySize(getBitmapSize(bitmap), MemoryConstants.MB);
+    }
 
 }
