@@ -1,5 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">AndroidLibraryCode</string>
     <string name="add">增加</string>
     <string name="del">减少</string>
+
+    <string name="action_share">分享</string>
+    <string name="actionbar_webview_share">分享到</string>
+    <string name="actionbar_webview_cope">复制链接</string>
+    <string name="actionbar_webview_open">浏览器打开</string>
+    <string name="actionbar_webview_refresh">刷新页面</string>
+    <string name="actionbar_share">分享给朋友\(^o^)/~</string>
+    <string name="string_hit">搜索或输入网址</string>
 </resources>
