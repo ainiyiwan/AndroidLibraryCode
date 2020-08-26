@@ -256,10 +256,13 @@ public final class ImageUtils {
         float scale = webView.getScale();
         int width = webView.getWidth();
         int height = (int) (webView.getContentHeight() * scale + 0.5);
-        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-        Canvas canvas = new Canvas(bitmap);
-        webView.draw(canvas);
-        return bitmap;
+        if (width > 0 && height > 0) {
+            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(bitmap);
+            webView.draw(canvas);
+            return bitmap;
+        }
+        return null;
     }
 
     /**

@@ -140,9 +140,9 @@ public class ByWebViewActivity extends AppCompatActivity {
 //            TestWebActivity.showImage(bitmap);
 
             //方式四：Web的getScale方法截取
-//            Bitmap bitmap = ImageUtils.captureWebViewLollipop(view);
-//            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
-//            TestWebActivity.showImage(bitmap);
+            Bitmap bitmap = ImageUtils.captureWebViewLollipop(view);
+            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
+            TestWebActivity.showImage(bitmap);
 
             //方式五：大神的博客，计算的高度不正确
 //            Bitmap bitmap = ImageUtils.captureWebViewByYiFeng(view);
@@ -150,10 +150,10 @@ public class ByWebViewActivity extends AppCompatActivity {
 //            TestWebActivity.showImage(bitmap);
 
             //方式六：使用低版本的截图方法 也是可行的。
-            Bitmap bitmap = ImageUtils.captureWebViewKitKat(view);
-            Log.e(TAG, "getBitmapSizeWithUnit = " + ImageUtils.getBitmapSizeWithUnit(bitmap) + " MB");
-            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
-            TestWebActivity.showImage(bitmap);
+//            Bitmap bitmap = ImageUtils.captureWebViewKitKat(view);
+//            Log.e(TAG, "getBitmapSizeWithUnit = " + ImageUtils.getBitmapSizeWithUnit(bitmap) + " MB");
+//            ToastUtil.toast(ByWebViewActivity.this, "onPageFinished");
+//            TestWebActivity.showImage(bitmap);
         }
 
         @Override
