@@ -18,15 +18,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".lifecycle.LifeCycleActivity">
+        <activity android:name=".aes.AesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".lifecycle.LifeCycleActivity"></activity>
         <activity android:name=".web.TestWebActivity">
-
         </activity> <!-- tencent x5 页面 -->
         <activity
             android:name=".web.tencentx5.X5WebViewActivity"
@@ -54,7 +54,7 @@
                 <data android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name=".viewstub.ViewStubActivity"></activity>
+        <activity android:name=".viewstub.ViewStubActivity" />
         <activity android:name=".lru.DiskLruActivity" />
         <activity android:name=".lru.LruActivity" />
         <activity android:name=".applink.AppLinksActivity" />
