@@ -33,7 +33,7 @@ public class ScreenShotActivity extends AppCompatActivity {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bitmap bitmap = ImageUtils.view2Bitmap(createShowView());
+                Bitmap bitmap = ImageUtils.view2Bitmap(createShotView());
                 imageView1.setImageBitmap(bitmap);
             }
         });
@@ -56,5 +56,11 @@ public class ScreenShotActivity extends AppCompatActivity {
 
         rootView.addView(textView, params);
         return rootView;
+    }
+
+    private View createShotView() {
+        ScreenShotView view = new ScreenShotView(this);
+        view.setText("你好啊！！！");
+        return view;
     }
 }
