@@ -1,4 +1,4 @@
-package com.zy.androidlibrarycode.supercomponent.container;
+package com.zy.androidlibrarycode.supercomponent;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.zy.androidlibrarycode.R;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.AspectRatio;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.AspectRatioed;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.AutoCheckable;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.ContainerDelegate;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.CornerType;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.Rotating;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.Rounded;
+import com.zy.androidlibrarycode.supercomponent.delegate.AspectRatio;
+import com.zy.androidlibrarycode.supercomponent.delegate.AspectRatioed;
+import com.zy.androidlibrarycode.supercomponent.delegate.AutoCheckable;
+import com.zy.androidlibrarycode.supercomponent.delegate.ContainerDelegate;
+import com.zy.androidlibrarycode.supercomponent.delegate.CornerType;
+import com.zy.androidlibrarycode.supercomponent.delegate.Rotating;
+import com.zy.androidlibrarycode.supercomponent.delegate.Rounded;
 
 import androidx.annotation.NonNull;
 

@@ -1,4 +1,4 @@
-package com.zy.androidlibrarycode.supercomponent.container.util;
+package com.zy.androidlibrarycode.supercomponent.util;
 
 import android.app.Activity;
 import android.content.Context;

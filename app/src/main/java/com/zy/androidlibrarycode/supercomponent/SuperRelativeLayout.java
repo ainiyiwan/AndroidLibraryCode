@@ -1,30 +1,30 @@
-package com.zy.androidlibrarycode.supercomponent.container;
+package com.zy.androidlibrarycode.supercomponent;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.zy.androidlibrarycode.R;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.AspectRatio;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.AspectRatioed;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.AutoCheckable;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.ContainerDelegate;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.CornerType;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.Rotating;
-import com.zy.androidlibrarycode.supercomponent.container.delegate.Rounded;
+import com.zy.androidlibrarycode.supercomponent.delegate.AspectRatio;
+import com.zy.androidlibrarycode.supercomponent.delegate.AspectRatioed;
+import com.zy.androidlibrarycode.supercomponent.delegate.AutoCheckable;
+import com.zy.androidlibrarycode.supercomponent.delegate.ContainerDelegate;
+import com.zy.androidlibrarycode.supercomponent.delegate.CornerType;
+import com.zy.androidlibrarycode.supercomponent.delegate.Rotating;
+import com.zy.androidlibrarycode.supercomponent.delegate.Rounded;
 
 import androidx.annotation.NonNull;
 
 
 /**
- * FrameLayout组件拓展(属性拓展支持)
+ * LinearLayout组件拓展(属性拓展支持)
  * <p>
- * Created by waylenw on 2020/3/24.
+ * Created by waylenw on 2019-11-13.
  */
-public class SuperFrameLayout extends FrameLayout
+public class SuperRelativeLayout extends RelativeLayout
     implements AutoCheckable, AspectRatioed, Rounded, Rotating, ContainerDelegate.SuperMethod {
 
     private ContainerDelegate mContainerDelegate = new ContainerDelegate(this);
@@ -47,15 +47,15 @@ public class SuperFrameLayout extends FrameLayout
     private boolean alived, started;
     private float lastRotate;
 
-    public SuperFrameLayout(Context context) {
+    public SuperRelativeLayout(Context context) {
         this(context, null);
     }
 
-    public SuperFrameLayout(Context context, AttributeSet attrs) {
+    public SuperRelativeLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SuperFrameLayout);
-        mAutoCheck = array.getBoolean(R.styleable.SuperFrameLayout_sfl_auto_check, mAutoCheck);
-        mChecked = array.getBoolean(R.styleable.SuperFrameLayout_sfl_checked, mChecked);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SuperRelativeLayout);
+        mAutoCheck = array.getBoolean(R.styleable.SuperRelativeLayout_srl_auto_check, mAutoCheck);
+        mChecked = array.getBoolean(R.styleable.SuperRelativeLayout_srl_checked, mChecked);
         mContainerDelegate.init(array);
         array.recycle();
         setWillNotDraw(false);

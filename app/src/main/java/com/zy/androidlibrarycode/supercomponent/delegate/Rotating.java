@@ -1,4 +1,4 @@
-package com.zy.androidlibrarycode.supercomponent.container.delegate;
+package com.zy.androidlibrarycode.supercomponent.delegate;
 
 /**
  * 旋转

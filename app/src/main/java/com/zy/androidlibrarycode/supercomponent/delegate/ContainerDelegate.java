@@ -1,4 +1,4 @@
-package com.zy.androidlibrarycode.supercomponent.container.delegate;
+package com.zy.androidlibrarycode.supercomponent.delegate;
 
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -14,11 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zy.androidlibrarycode.R;
-import com.zy.androidlibrarycode.supercomponent.container.SuperFrameLayout;
-import com.zy.androidlibrarycode.supercomponent.container.SuperLinearLayout;
-import com.zy.androidlibrarycode.supercomponent.container.SuperRelativeLayout;
-import com.zy.androidlibrarycode.supercomponent.container.util.ScreenUtils;
-import com.zy.androidlibrarycode.supercomponent.container.util.SysOSUtils;
+import com.zy.androidlibrarycode.supercomponent.SuperFrameLayout;
+import com.zy.androidlibrarycode.supercomponent.SuperLinearLayout;
+import com.zy.androidlibrarycode.supercomponent.SuperRelativeLayout;
+import com.zy.androidlibrarycode.supercomponent.util.ScreenUtils;
+import com.zy.androidlibrarycode.supercomponent.util.SysOSUtils;
 
 import androidx.annotation.NonNull;
 

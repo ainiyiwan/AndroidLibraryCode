@@ -1,4 +1,4 @@
-package com.zy.androidlibrarycode.supercomponent.container.text;
+package com.zy.androidlibrarycode.supercomponent.text;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
