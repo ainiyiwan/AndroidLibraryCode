@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SuperLinearLayout">
+        <attr name="sll_aspect_ratio" format="float" />
+        <attr name="sll_auto_check" format="boolean" />
+        <attr name="sll_checked" format="boolean" />
+        <attr name="sll_activated" format="boolean" />
+        <attr name="sll_border_color" format="color" />
+        <attr name="sll_border_width" format="dimension" />
+        <attr name="sll_corner_radius" format="dimension" />
+        <attr name="sll_fit_system_bar" format="boolean" />
+        <attr name="sll_clip_padding" format="boolean" />
+        <!--是否是用bitmap 的方式绘制圆角，没有毛刺但占用内存-->
+        <attr name="sll_clip_bitmap" format="boolean" />
+        <attr name="sll_corner_type" format="enum">
+            <enum name="all" value="0" />
+            <enum name="top_left" value="1" />
+            <enum name="top_right" value="2" />
+            <enum name="bottom_left" value="3" />
+            <enum name="bottom_right" value="4" />
+            <enum name="top" value="5" />
+            <enum name="bottom" value="6" />
+            <enum name="left" value="7" />
+            <enum name="right" value="8" />
+            <enum name="other_top_left" value="9" />
+            <enum name="other_top_right" value="10" />
+            <enum name="other_bottom_left" value="11" />
+            <enum name="other_bottom_right" value="12" />
+            <enum name="diagonal_from_top_left" value="13" />
+            <enum name="diagonal_from_top_right" value="14" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SuperFrameLayout">
+        <attr name="sfl_aspect_ratio" format="float" />
+        <attr name="sfl_auto_check" format="boolean" />
+        <attr name="sfl_checked" format="boolean" />
+        <attr name="sfl_activated" format="boolean" />
+        <attr name="sfl_border_color" format="color" />
+        <attr name="sfl_border_width" format="dimension" />
+        <attr name="sfl_corner_radius" format="dimension" />
+        <attr name="sfl_fit_system_bar" format="boolean" />
+        <attr name="sfl_clip_padding" format="boolean" />
+        <!--是否是用bitmap 的方式绘制圆角，没有毛刺但占用内存-->
+        <attr name="sfl_clip_bitmap" format="boolean" />
+        <attr name="sfl_corner_type" format="enum">
+            <enum name="all" value="0" />
+            <enum name="top_left" value="1" />
+            <enum name="top_right" value="2" />
+            <enum name="bottom_left" value="3" />
+            <enum name="bottom_right" value="4" />
+            <enum name="top" value="5" />
+            <enum name="bottom" value="6" />
+            <enum name="left" value="7" />
+            <enum name="right" value="8" />
+            <enum name="other_top_left" value="9" />
+            <enum name="other_top_right" value="10" />
+            <enum name="other_bottom_left" value="11" />
+            <enum name="other_bottom_right" value="12" />
+            <enum name="diagonal_from_top_left" value="13" />
+            <enum name="diagonal_from_top_right" value="14" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="SuperRelativeLayout">
+        <attr name="srl_aspect_ratio" format="float" />
+        <attr name="srl_auto_check" format="boolean" />
+        <attr name="srl_checked" format="boolean" />
+        <attr name="srl_activated" format="boolean" />
+        <attr name="srl_border_color" format="color" />
+        <attr name="srl_border_width" format="dimension" />
+        <attr name="srl_corner_radius" format="dimension" />
+        <attr name="srl_fit_system_bar" format="boolean" />
+        <attr name="srl_clip_padding" format="boolean" />
+        <!--是否是用bitmap 的方式绘制圆角，没有毛刺但占用内存-->
+        <attr name="srl_clip_bitmap" format="boolean" />
+        <attr name="srl_corner_type" format="enum">
+            <enum name="all" value="0" />
+            <enum name="top_left" value="1" />
+            <enum name="top_right" value="2" />
+            <enum name="bottom_left" value="3" />
+            <enum name="bottom_right" value="4" />
+            <enum name="top" value="5" />
+            <enum name="bottom" value="6" />
+            <enum name="left" value="7" />
+            <enum name="right" value="8" />
+            <enum name="other_top_left" value="9" />
+            <enum name="other_top_right" value="10" />
+            <enum name="other_bottom_left" value="11" />
+            <enum name="other_bottom_right" value="12" />
+            <enum name="diagonal_from_top_left" value="13" />
+            <enum name="diagonal_from_top_right" value="14" />
+        </attr>
+    </declare-styleable>
+</resources>

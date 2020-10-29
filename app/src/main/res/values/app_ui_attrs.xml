@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SuperRecyclerView">
+        <!--列表的滑动方向-->
+        <attr name="srv_scroll_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="srv_enable_scroll" format="boolean" />
+        <attr name="srv_layout_type" format="enum">
+            <enum name="linear" value="0" />
+            <enum name="grid" value="1" />
+            <enum name="falls" value="2" />
+        </attr>
+        <attr name="srv_span_count" format="integer" />
+    </declare-styleable>
+
+
+    <declare-styleable name="NavigationBottomBar">
+        <attr name="item_text_size" format="dimension" />
+        <attr name="item_text_color" format="color" />
+        <attr name="item_text_select_color" format="color" />
+        <attr name="item_text_bold" format="boolean" />
+        <attr name="item_drawable_padding" format="dimension" />
+        <attr name="item_custom_match" format="boolean" />
+        <attr name="item_unread_red_dot_text_padding" format="dimension" />
+        <attr name="item_unread_red_dot_text_background" format="reference" />
+        <attr name="item_drawable_dire" format="enum">
+            <enum name="left" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+            <enum name="right" value="4" />
+        </attr>
+        <attr name="item_click_anim_type" format="enum">
+            <enum name="none" value="0" />
+            <enum name="scale" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RoundedTextView">
+        <attr name="rtv_corner_radius" format="dimension" />
+        <attr name="rtv_border_width" format="dimension" />
+        <attr name="rtv_border_color" format="color" />
+        <attr name="rtv_background_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RotateImageView">
+        <attr name="rounded" format="boolean" />
+        <attr name="interval_degree" format="float" />
+        <attr name="interval_time" format="integer" />
+        <attr name="during" format="integer" />
+        <attr name="is_clockwise" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="rciv_all_radius" format="dimension" />
+        <attr name="rciv_all_ratio" format="float" />
+        <attr name="rciv_img_lt_radius" format="dimension" />
+        <attr name="rciv_rt_radius" format="dimension" />
+        <attr name="rciv_rb_radius" format="dimension" />
+        <attr name="rciv_lb_radius" format="dimension" />
+        <attr name="rciv_stroke_width" format="dimension" />
+        <attr name="rciv_stroke_color" format="color" />
+        <!--是否是原型-->
+        <attr name="rciv_is_circle" format="boolean" />
+    </declare-styleable>
+    <!-- RTextView -->
+    <declare-styleable name="RTextView">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" format="dimension" />
+        <attr name="corner_radius_top_left" format="dimension" />
+        <attr name="corner_radius_top_right" format="dimension" />
+        <attr name="corner_radius_bottom_left" format="dimension" />
+        <attr name="corner_radius_bottom_right" format="dimension" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" format="dimension" />
+        <attr name="border_dash_gap" format="dimension" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" format="dimension" />
+        <attr name="border_width_pressed" format="dimension" />
+        <attr name="border_width_unable" format="dimension" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" format="color" />
+        <attr name="border_color_pressed" format="color" />
+        <attr name="border_color_unable" format="color" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" format="color" />
+        <attr name="background_pressed" format="color" />
+        <attr name="background_unable" format="color" />
+
+        <!--文本颜色-->
+        <attr name="text_color_normal" format="color" />
+        <attr name="text_color_pressed" format="color" />
+        <attr name="text_color_unable" format="color" />
+
+        <!--图标资源-->
+        <attr name="icon_src_normal" format="reference" />
+        <attr name="icon_src_pressed" format="reference" />
+        <attr name="icon_src_unable" format="reference" />
+
+        <!--图标、大小、位置-->
+        <attr name="icon_height" format="dimension" />
+        <attr name="icon_width" format="dimension" />
+        <attr name="icon_direction">
+            <enum name="left" value="1" />
+            <enum name="top" value="2" />
+            <enum name="right" value="3" />
+            <enum name="bottom" value="4" />
+        </attr>
+
+    </declare-styleable>
+</resources>
