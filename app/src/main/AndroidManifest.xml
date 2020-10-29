@@ -18,12 +18,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".aes.AesActivity">
+        <activity android:name=".views.ViewTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".lifecycle.LifeCycleActivity"></activity>
-        <activity android:name=".web.TestWebActivity">
-        </activity> <!-- tencent x5 页面 -->
+        <activity android:name=".aes.AesActivity"></activity>
+        <activity android:name=".lifecycle.LifeCycleActivity" />
+        <activity android:name=".web.TestWebActivity"></activity> <!-- tencent x5 页面 -->
         <activity
             android:name=".web.tencentx5.X5WebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -53,20 +57,13 @@
         <activity android:name=".viewstub.ViewStubActivity" />
         <activity android:name=".lru.DiskLruActivity" />
         <activity android:name=".lru.LruActivity" />
-        <activity android:name=".applink.AppLinksActivity" >
-
-        </activity>
+        <activity android:name=".applink.AppLinksActivity"></activity>
         <activity android:name=".exception.ConcurrentModificationExceptionActivity" />
         <activity android:name=".bitmap.test.BitmapCompressActivity" />
         <activity android:name=".barcode.BarCodeActivity" />
         <activity android:name=".ninepic.NinePicActivity" />
         <activity android:name=".aop.ProxyActivity" />
         <activity android:name=".screenshot.ScreenShotActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".dagger.DaggerActivity" />
         <activity android:name=".goodlayout.GoodsNameActivity" />

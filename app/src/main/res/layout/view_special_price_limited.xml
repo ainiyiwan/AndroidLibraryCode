@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_label"
+        android:text="特价"
+        android:textSize="12dp"
+        android:padding="3dp"
+        android:background="#FF7387"
+        android:textColor="@color/color_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.zy.androidlibrarycode.supercomponent.text.SuperTextView
+        android:id="@+id/tv_limit"
+        android:textSize="12dp"
+        android:padding="3dp"
+        android:textColor="#FF7387"
+        android:text="限2件"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rtv_corner_radius="0dp"
+        app:rtv_border_width="1dp"
+        app:rtv_border_color="#FF7387"/>
+
+
+</LinearLayout>
