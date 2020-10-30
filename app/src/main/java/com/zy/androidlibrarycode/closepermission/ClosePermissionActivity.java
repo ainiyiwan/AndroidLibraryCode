@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.permissionx.guolindev.PermissionX;
 import com.permissionx.guolindev.callback.ExplainReasonCallback;
 import com.permissionx.guolindev.callback.ForwardToSettingsCallback;
@@ -15,6 +17,7 @@ import com.permissionx.guolindev.callback.RequestCallback;
 import com.permissionx.guolindev.request.ExplainScope;
 import com.permissionx.guolindev.request.ForwardScope;
 import com.zy.androidlibrarycode.R;
+import com.zy.androidlibrarycode.closepermission.model.User;
 
 import java.util.List;
 
@@ -27,6 +30,7 @@ public class ClosePermissionActivity extends AppCompatActivity {
 
     public static final String SP_State1 = "sp_state1";
     public static final String SP_State2 = "sp_state2";
+    public static final String SP_State3 = "sp_state3";
 
 
     @Override
@@ -40,10 +44,48 @@ public class ClosePermissionActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        LogUtils.e(PermissionConst.TAG, "ClosePermissionActivity onDestroy");
+    public void saveSP(View view) {
+        putSp();
+    }
+
+    public void getSP(View view) {
+        getSP();
+    }
+
+    //方式二 使用SP存储，使用方便，可以使用
+    private void putSp() {
+        /**
+         * https://blog.csdn.net/brooksjames/article/details/80039928
+         * 1）写入数据：
+         *      //步骤1：创建一个SharedPreferences对象
+         *      SharedPreferences sharedPreferences= getSharedPreferences("data",Context
+         *      .MODE_PRIVATE);
+         *      //步骤2： 实例化SharedPreferences.Editor对象
+         *      SharedPreferences.Editor editor = sharedPreferences.edit();
+         *      //步骤3：将获取过来的值放入文件
+         *      editor.putString("name", “Tom”);
+         *      editor.putInt("age", 28);
+         *      editor.putBoolean("marrid",false);
+         *      //步骤4：提交
+         *      editor.commit();
+         */
+        SPUtils.getInstance().put(SP_State1, "sp1", true);
+        SPUtils.getInstance().put(SP_State2, "sp2", true);
+        User user = User.builder()
+                .name("zhangyang")
+                .sex("男")
+                .build();
+        String userStr = GsonUtils.toJson(user);
+        SPUtils.getInstance().put(SP_State3, userStr);
+    }
+
+    private void getSP() {
+        User user = GsonUtils.fromJson(SPUtils.getInstance().getString(SP_State3), User.class);
+        LogUtils.e(PermissionConst.SP, "ClosePermissionActivity getSP = "+ "\n"
+                + SPUtils.getInstance().getString(SP_State1) + "\n"
+                + SPUtils.getInstance().getString(SP_State2) + "\n"
+                + SPUtils.getInstance().getString(SP_State3) + "\n"
+                + user.toString());
     }
 
     public void requestPhonePer(View view) {
@@ -91,6 +133,12 @@ public class ClosePermissionActivity extends AppCompatActivity {
         } catch (SecurityException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtils.e(PermissionConst.TAG, "ClosePermissionActivity onDestroy");
     }
 
 //    @Override
