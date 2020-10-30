@@ -8,6 +8,7 @@ package com.zy.androidlibrarycode.closepermission;
  * ================================================
  */
 public interface PermissionConst {
-    String TAG = "PermissionConst";
-    String SP = "PermissionSP";
+    String TAG = "PermissionConst";//bundle
+    String SP = "PermissionSP";//sp
+    String MEMORY = "PermissionMemory";//memory
 }

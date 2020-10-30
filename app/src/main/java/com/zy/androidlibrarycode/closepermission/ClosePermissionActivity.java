@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.CacheMemoryUtils;
 import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.SPUtils;
@@ -32,6 +33,8 @@ public class ClosePermissionActivity extends AppCompatActivity {
     public static final String SP_State2 = "sp_state2";
     public static final String SP_State3 = "sp_state3";
 
+    public static final String Memory_State1 = "Memory_state1";
+    public static final String Memory_State2 = "Memory_state2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +74,15 @@ public class ClosePermissionActivity extends AppCompatActivity {
          */
         SPUtils.getInstance().put(SP_State1, "sp1", true);
         SPUtils.getInstance().put(SP_State2, "sp2", true);
+        SPUtils.getInstance().put(SP_State3, getNewUser());
+    }
+
+    private String getNewUser() {
         User user = User.builder()
                 .name("zhangyang")
                 .sex("男")
                 .build();
-        String userStr = GsonUtils.toJson(user);
-        SPUtils.getInstance().put(SP_State3, userStr);
+        return GsonUtils.toJson(user);
     }
 
     private void getSP() {
@@ -139,6 +145,18 @@ public class ClosePermissionActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         LogUtils.e(PermissionConst.TAG, "ClosePermissionActivity onDestroy");
+    }
+
+    //方式三 使用LruCache存储，会丢失数据
+    public void setMemory(View view) {
+        CacheMemoryUtils.getInstance().put(Memory_State1, "memory");
+        CacheMemoryUtils.getInstance().put(Memory_State2, getNewUser());
+    }
+
+    public void getMemory(View view) {
+        LogUtils.e(PermissionConst.MEMORY, "ClosePermissionActivity getMemory "+ "\n"
+                + CacheMemoryUtils.getInstance().get(Memory_State1) + "\n"
+                + CacheMemoryUtils.getInstance().get(Memory_State2));
     }
 
 //    @Override
