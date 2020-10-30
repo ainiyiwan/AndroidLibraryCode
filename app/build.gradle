@@ -94,4 +94,5 @@ dependencies {
     //https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
     // if u use AndroidX, use the following
     implementation 'com.blankj:utilcodex:1.29.0'
+    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
 }

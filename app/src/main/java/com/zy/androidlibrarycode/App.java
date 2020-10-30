@@ -3,7 +3,9 @@ package com.zy.androidlibrarycode;
 import android.app.Application;
 import android.util.Log;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.tencent.smtt.sdk.QbSdk;
+import com.zy.androidlibrarycode.closepermission.PermissionConst;
 import com.zy.androidlibrarycode.fdleak.CustomerException;
 
 /**
@@ -23,6 +25,8 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        LogUtils.e(PermissionConst.TAG, "Application onCreate");
+
         app = (App) getApplicationContext();
         if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
 //            ARouter.openLog();     // 打印日志
