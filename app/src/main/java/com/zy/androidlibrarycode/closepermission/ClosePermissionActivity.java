@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.CacheDoubleUtils;
 import com.blankj.utilcode.util.CacheMemoryUtils;
 import com.blankj.utilcode.util.GsonUtils;
 import com.blankj.utilcode.util.LogUtils;
@@ -35,6 +36,8 @@ public class ClosePermissionActivity extends AppCompatActivity {
 
     public static final String Memory_State1 = "Memory_state1";
     public static final String Memory_State2 = "Memory_state2";
+    public static final String DOUBULE_Memory_State1 = "double_Memory_state1";
+    public static final String DOUBULE_Memory_State2 = "double_Memory_state2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,15 +151,23 @@ public class ClosePermissionActivity extends AppCompatActivity {
     }
 
     //方式三 使用LruCache存储，会丢失数据
+    //方式四 使用DiskCacheManager存储
     public void setMemory(View view) {
         CacheMemoryUtils.getInstance().put(Memory_State1, "memory");
         CacheMemoryUtils.getInstance().put(Memory_State2, getNewUser());
+
+        CacheDoubleUtils.getInstance().put(DOUBULE_Memory_State1, "double_memory");
+        CacheDoubleUtils.getInstance().put(DOUBULE_Memory_State2, getNewUser());
     }
 
     public void getMemory(View view) {
         LogUtils.e(PermissionConst.MEMORY, "ClosePermissionActivity getMemory "+ "\n"
                 + CacheMemoryUtils.getInstance().get(Memory_State1) + "\n"
                 + CacheMemoryUtils.getInstance().get(Memory_State2));
+
+        LogUtils.e(PermissionConst.MEMORY, "ClosePermissionActivity getDoubleMemory "+ "\n"
+                + CacheDoubleUtils.getInstance().getString(DOUBULE_Memory_State1) + "\n"
+                + CacheDoubleUtils.getInstance().getString(DOUBULE_Memory_State2));
     }
 
 //    @Override
