@@ -18,15 +18,26 @@ import com.zy.androidlibrarycode.R;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ClosePermissionActivity extends AppCompatActivity {
+    public static final String Bundle_State1 = "bundle_state1";
+    public static final String Bundle_State2 = "bundle_state2";
+
+    public static final String SP_State1 = "sp_state1";
+    public static final String SP_State2 = "sp_state2";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_close_permission);
         LogUtils.e(PermissionConst.TAG, "ClosePermissionActivity onCreate savedInstanceState = " + savedInstanceState);
+        if (savedInstanceState != null) {
+            LogUtils.e(PermissionConst.TAG, "ClosePermissionActivity onCreate savedInstanceState = "+ "\n"
+                    + savedInstanceState.getString(Bundle_State1) + "\n" +  savedInstanceState.getString(Bundle_State2));
+        }
     }
 
     @Override
@@ -61,6 +72,15 @@ public class ClosePermissionActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    //方式一 使用bundle存储，官方推荐，但是有大小限制
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        LogUtils.e(PermissionConst.TAG, "ClosePermissionActivity onSaveInstanceState outState = " + outState);
+        outState.putString(Bundle_State1, "bundle1");
+        outState.putString(Bundle_State2, "bundle2");
     }
 
     private void call() {
