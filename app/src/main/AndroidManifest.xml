@@ -21,17 +21,24 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".closepermission.ClosePermissionActivity">
+        <activity android:name=".aidl.AidlActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.ViewTestActivity">
+
+        <service
+            android:name=".aidl.CalcService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <activity android:name=".closepermission.ClosePermissionActivity" />
+        <activity android:name=".views.ViewTestActivity" />
+        <activity android:name=".aes.AesActivity">
 
         </activity>
-        <activity android:name=".aes.AesActivity" />
         <activity android:name=".lifecycle.LifeCycleActivity" />
         <activity android:name=".web.TestWebActivity" /> <!-- tencent x5 页面 -->
         <activity
@@ -69,7 +76,7 @@
         <activity android:name=".barcode.BarCodeActivity" />
         <activity android:name=".ninepic.NinePicActivity" />
         <activity android:name=".aop.ProxyActivity" />
-        <activity android:name=".screenshot.ScreenShotActivity"></activity>
+        <activity android:name=".screenshot.ScreenShotActivity" />
         <activity android:name=".dagger.DaggerActivity" />
         <activity android:name=".goodlayout.GoodsNameActivity" />
         <activity android:name=".dynamiclayout.DynamicRecyclerActivity" />
