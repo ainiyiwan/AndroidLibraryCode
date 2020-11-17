@@ -3,6 +3,7 @@ package com.zy.androidlibrarycode;
 import android.app.Application;
 import android.util.Log;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.LogUtils;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zy.androidlibrarycode.closepermission.PermissionConst;
@@ -29,10 +30,10 @@ public class App extends Application {
 
         app = (App) getApplicationContext();
         if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
-//            ARouter.openLog();     // 打印日志
-//            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
-//        ARouter.init(App.this); // 尽可能早，推荐在Application中初始化
+        ARouter.init(App.this); // 尽可能早，推荐在Application中初始化
         CustomerException.getExceptionControl().init(this);
 
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
