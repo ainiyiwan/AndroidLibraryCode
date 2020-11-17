@@ -9,6 +9,13 @@ import java.lang.reflect.Proxy;
  * 作    者：zhangyang
  * 版    本: V4.2.0
  * 描    述：https://www.cnblogs.com/cenyu/p/6289209.html
+ *
+ *  // Android-added: Helper method invoke(Proxy, Method, Object[]) for ART native code.
+ *  Proxy
+ *     private static Object invoke(Proxy proxy, Method method, Object[] args) throws Throwable {
+ *         InvocationHandler h = proxy.h;
+ *         return h.invoke(proxy, method, args);
+ *     }
  * ================================================
  */
 public class ProxyFactory {
