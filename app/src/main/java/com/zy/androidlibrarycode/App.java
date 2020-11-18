@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.blankj.utilcode.util.LogUtils;
+import com.github.moduth.blockcanary.BlockCanary;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zy.androidlibrarycode.closepermission.PermissionConst;
@@ -61,5 +62,7 @@ public class App extends Application {
             return;
         }
         LeakCanary.install(this);
+
+        BlockCanary.install(this, new AppBlockCanaryContext()).start();
     }
 }
