@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.github.anrwatchdog.ANRWatchDog;
 import com.zy.androidlibrarycode.arouter.constant.ARouterPath;
 import com.zy.androidlibrarycode.fastjson.FastjsonActivity;
 import com.zy.androidlibrarycode.lombok.LombokActivity;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         textView3.setText(span);
 //        版权声明：本文为CSDN博主「singwhatiwanna」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
 //        原文链接：https://blog.csdn.net/singwhatiwanna/article/details/18363899
+
+        new ANRWatchDog().start();
     }
 
     public void fastjson(View view) {
